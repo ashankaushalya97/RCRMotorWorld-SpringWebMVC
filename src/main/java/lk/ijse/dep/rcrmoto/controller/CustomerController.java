@@ -44,10 +44,8 @@ public class CustomerController {
         }
 
     }
-
     @DeleteMapping("/{id}")
     public void deleteCustomer(@PathVariable String id){
         customerBO.deleteCustomer(id);
     }
-
 }
