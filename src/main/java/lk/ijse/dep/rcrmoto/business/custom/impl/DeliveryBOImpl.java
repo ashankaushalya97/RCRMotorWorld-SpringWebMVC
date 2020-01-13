@@ -20,24 +20,24 @@ public class DeliveryBOImpl implements DeliveryBO {
     @Autowired
     DeliveryDAO deliveryDAO;
     @Override
-    public void saveDelivery(DeliveryDTO delivery) throws Exception {
+    public void saveDelivery(DeliveryDTO delivery)  {
             deliveryDAO.save(new Delivery(delivery.getDeliveryId(),delivery.getOrderId(),delivery.getAddress(),delivery.getStates()));
 
     }
 
     @Override
-    public void updateDelivery(DeliveryDTO delivery) throws Exception {
+    public void updateDelivery(DeliveryDTO delivery)  {
             deliveryDAO.update(new Delivery(delivery.getDeliveryId(),delivery.getOrderId(),delivery.getAddress(),delivery.getStates()));
     }
 
     @Override
-    public void deleteDelivery(String deliveryId, String orderId) throws Exception {
+    public void deleteDelivery(String deliveryId, String orderId)  {
             deliveryDAO.delete(new DeliveryPK(deliveryId,orderId));
     }
 
     @Transactional(readOnly = true)
     @Override
-    public List<DeliveryDTO> findAllDeliveries() throws Exception {
+    public List<DeliveryDTO> findAllDeliveries()  {
             List<Delivery> all = deliveryDAO.findAll();
             List<DeliveryDTO> deliveryDTOS = new ArrayList<>();
             for (Delivery delivery : all) {
@@ -48,13 +48,13 @@ public class DeliveryBOImpl implements DeliveryBO {
 
     @Transactional(readOnly = true)
     @Override
-    public String getLastDeliveryId() throws Exception {
+    public String getLastDeliveryId()  {
         return deliveryDAO.getLastDeliveryId();
     }
 
     @Transactional(readOnly = true)
     @Override
-    public List<String> getOrderIds() throws Exception {
+    public List<String> getOrderIds()  {
             List<Delivery> all = deliveryDAO.findAll();
             List<String> ids = new ArrayList<>();
             for (Delivery delivery : all) {
@@ -65,7 +65,7 @@ public class DeliveryBOImpl implements DeliveryBO {
 
     @Transactional(readOnly = true)
     @Override
-    public List<DeliveryDTO> searchDelivery(String text) throws Exception {
+    public List<DeliveryDTO> searchDelivery(String text)  {
             List<Delivery> search = deliveryDAO.searchDelivery(text);
             List<DeliveryDTO> deliveries = new ArrayList<>();
             for (Delivery delivery : search) {

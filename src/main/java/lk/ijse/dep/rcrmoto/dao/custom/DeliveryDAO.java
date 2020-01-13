@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface DeliveryDAO extends CrudDAO<Delivery, DeliveryPK> {
 
-    String getLastDeliveryId()throws Exception;
+    String getLastDeliveryId();
 
-    List<Delivery> searchDelivery(String text)throws Exception;
+    List<Delivery> searchDelivery(String text);
 }

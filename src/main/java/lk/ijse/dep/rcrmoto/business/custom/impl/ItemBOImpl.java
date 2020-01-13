@@ -24,23 +24,23 @@ public class ItemBOImpl implements ItemBO {
     CategoryDAO categoryDAO;
 
     @Override
-    public void saveItem(ItemDTO item) throws Exception {
+    public void saveItem(ItemDTO item)  {
             itemDAO.save(new Item(item.getItemId(),categoryDAO.find(item.getCategoryId()),item.getBrand(),item.getDescription(),item.getQtyOnHand(),item.getBuyPrice(),item.getUnitPrice()));
     }
 
     @Override
-    public void updateItem(ItemDTO item) throws Exception {
+    public void updateItem(ItemDTO item)  {
             itemDAO.update(new Item(item.getItemId(),categoryDAO.find(item.getCategoryId()),item.getBrand(),item.getDescription(),item.getQtyOnHand(),item.getBuyPrice(),item.getUnitPrice()));
     }
 
     @Override
-    public void deleteItem(String id) throws Exception {
+    public void deleteItem(String id)  {
             itemDAO.delete(id);
     }
 
     @Transactional(readOnly = true)
     @Override
-    public List<ItemDTO> findAllItems() throws Exception {
+    public List<ItemDTO> findAllItems()  {
             List<Item> all = itemDAO.findAll();
             List<ItemDTO> itemDTOS = new ArrayList<>();
             for (Item item : all) {
@@ -51,14 +51,14 @@ public class ItemBOImpl implements ItemBO {
 
     @Transactional(readOnly = true)
     @Override
-    public String getLastItemId() throws Exception {
+    public String getLastItemId()  {
             String lastItemId = itemDAO.getLastItemId();
             return lastItemId;
     }
 
     @Transactional(readOnly = true)
     @Override
-    public List<ItemDTO> searchItems(String text) throws Exception {
+    public List<ItemDTO> searchItems(String text)  {
             List<Item> search = itemDAO.searchItems(text);
             List<ItemDTO> items = new ArrayList<>();
             for (Item item : search) {

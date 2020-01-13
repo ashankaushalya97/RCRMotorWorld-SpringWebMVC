@@ -7,17 +7,17 @@ import java.util.List;
 
 public interface DeliveryBO extends SuperBO {
 
-    void saveDelivery(DeliveryDTO delivery)throws Exception;
+    void saveDelivery(DeliveryDTO delivery);
 
-    void updateDelivery(DeliveryDTO delivery)throws Exception;
+    void updateDelivery(DeliveryDTO delivery);
 
-    void deleteDelivery(String deliveryId,String orderId)throws Exception;
+    void deleteDelivery(String deliveryId,String orderId);
 
-    List<DeliveryDTO> findAllDeliveries()throws Exception;
+    List<DeliveryDTO> findAllDeliveries();
 
-    String getLastDeliveryId()throws Exception;
+    String getLastDeliveryId();
 
-    List<String> getOrderIds()throws Exception;
+    List<String> getOrderIds();
 
-    List<DeliveryDTO> searchDelivery(String text)throws Exception;
+    List<DeliveryDTO> searchDelivery(String text);
 }

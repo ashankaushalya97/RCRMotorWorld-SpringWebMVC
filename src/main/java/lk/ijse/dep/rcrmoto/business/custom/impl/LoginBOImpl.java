@@ -18,7 +18,7 @@ public class LoginBOImpl implements LoginBO {
 
     @Transactional(readOnly = true)
     @Override
-    public boolean authentication(LoginDTO loginDTO) throws Exception {
+    public boolean authentication(LoginDTO loginDTO)  {
             return adminDAO.authentication(new Admin(loginDTO.getUsename(), loginDTO.getPassword()));
     }
 

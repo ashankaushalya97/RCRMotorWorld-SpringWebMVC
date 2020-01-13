@@ -7,8 +7,8 @@ import java.util.List;
 
 public interface ItemDAO extends CrudDAO<Item,String> {
 
-    String getLastItemId() throws Exception;
+    String getLastItemId() ;
 
-    List<Item> searchItems(String text)throws Exception;
+    List<Item> searchItems(String text);
 
 }

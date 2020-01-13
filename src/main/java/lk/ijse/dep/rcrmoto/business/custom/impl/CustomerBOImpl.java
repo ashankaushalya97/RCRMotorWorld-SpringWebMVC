@@ -21,23 +21,23 @@ public class CustomerBOImpl implements CustomerBO {
     CustomerDAO customerDAO;
 
     @Override
-    public void saveCustomer(CustomerDTO customer) throws Exception {
+    public void saveCustomer(CustomerDTO customer)  {
             customerDAO.save(new Customer(customer.getCustomerId(),customer.getName(),customer.getContact()));
     }
 
     @Override
-    public void updateCustomer(CustomerDTO customer) throws Exception {
+    public void updateCustomer(CustomerDTO customer)  {
             customerDAO.update(new Customer(customer.getCustomerId(),customer.getName(),customer.getContact()));
     }
 
     @Override
-    public void deleteCustomer(String id) throws Exception {
+    public void deleteCustomer(String id)  {
             customerDAO.delete(id);
     }
 
     @Transactional(readOnly = true)
     @Override
-    public List<CustomerDTO> findAllCustomers() throws Exception {
+    public List<CustomerDTO> findAllCustomers()  {
             List<Customer> all = customerDAO.findAll();
             List<CustomerDTO> customerDTOS = new ArrayList<>();
             for (Customer customer : all) {
@@ -48,13 +48,13 @@ public class CustomerBOImpl implements CustomerBO {
 
     @Transactional(readOnly = true)
     @Override
-    public String getLastCustomerId() throws Exception {
+    public String getLastCustomerId()  {
              return customerDAO.getLastCustomerId();
     }
 
     @Transactional(readOnly = true)
     @Override
-    public List<CustomerDTO> searchCustomer(String text) throws Exception {
+    public List<CustomerDTO> searchCustomer(String text)  {
             List<Customer> search = customerDAO.searchCustomers(text);
             List<CustomerDTO> customers = new ArrayList<>();
             for (Customer customer : search) {

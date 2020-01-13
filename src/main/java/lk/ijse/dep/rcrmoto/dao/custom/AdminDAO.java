@@ -5,5 +5,5 @@ import lk.ijse.dep.rcrmoto.entity.Admin;
 
 public interface AdminDAO extends CrudDAO<Admin,String> {
 
-    boolean authentication(Admin admin)throws Exception;
+    boolean authentication(Admin admin);
 }

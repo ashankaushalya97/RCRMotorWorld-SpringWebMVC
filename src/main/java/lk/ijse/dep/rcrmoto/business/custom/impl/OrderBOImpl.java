@@ -31,12 +31,12 @@ public class OrderBOImpl implements OrderBO {
     CustomerDAO customerDAO;
 
     @Override
-    public String getLastOrderId() throws Exception {
+    public String getLastOrderId()  {
             return ordersDAO.getLastOrderId();
     }
 
     @Override
-    public void placeOrder(OrderDTO order) throws Exception {
+    public void placeOrder(OrderDTO order)  {
 
             ordersDAO.save(new Orders(order.getOrderId(),order.getDate(),customerDAO.find(order.getCustomerId())));
             for (OrderDetailDTO orderDetails : order.getOrderDetail() ) {
@@ -52,7 +52,7 @@ public class OrderBOImpl implements OrderBO {
 
     @Transactional(readOnly = true)
     @Override
-    public List<String> getAllOrderIDs() throws Exception {
+    public List<String> getAllOrderIDs()  {
             List<Orders> allOrders= ordersDAO.findAll();
             List<String> ids = new ArrayList<>();
             for (Orders allOrder : allOrders) {
@@ -63,7 +63,7 @@ public class OrderBOImpl implements OrderBO {
 
     @Transactional(readOnly = true)
     @Override
-    public List<OrderDTO2> getOrderInfo() throws Exception {
+    public List<OrderDTO2> getOrderInfo()  {
             List<CustomEntity> orders = queryDAO.getOrderInfo();
             List<OrderDTO2> all = new ArrayList<>();
             for (CustomEntity order : orders) {
@@ -74,7 +74,7 @@ public class OrderBOImpl implements OrderBO {
 
     @Transactional(readOnly = true)
     @Override
-    public List<OrderDTO2> searchOrder(String text) throws Exception {
+    public List<OrderDTO2> searchOrder(String text)  {
 
             List<CustomEntity> orders = queryDAO.searchOrder(text);
             List<OrderDTO2> all = new ArrayList<>();

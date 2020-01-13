@@ -21,7 +21,7 @@ public class CategoryBOImpl implements CategoryBO {
 
     @Transactional(readOnly = true)
     @Override
-    public List<CategoryDTO> getCategories() throws Exception {
+    public List<CategoryDTO> getCategories()  {
             List<CategoryDTO> categories = new ArrayList<>();
             List<Category> all = categoryDAO.findAll();
             for (Category category : all) {

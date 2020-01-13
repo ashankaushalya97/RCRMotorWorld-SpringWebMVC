@@ -8,8 +8,8 @@ import java.util.List;
 
 public interface CustomerDAO extends CrudDAO<Customer,String> {
 
-    String getLastCustomerId()throws Exception;
+    String getLastCustomerId();
 
-    List<Customer> searchCustomers(String text)throws Exception;
+    List<Customer> searchCustomers(String text);
 
 }

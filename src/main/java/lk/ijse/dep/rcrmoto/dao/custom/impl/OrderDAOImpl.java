@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 public class OrderDAOImpl extends CrudDAOImpl<Orders,String> implements OrdersDAO {
 
     @Override
-    public String getLastOrderId() throws Exception {
+    public String getLastOrderId()  {
         return (String) getSession().createNativeQuery("SELECT order_id FROM Orders ORDER BY order_id DESC LIMIT 1").uniqueResult();
     }
 }

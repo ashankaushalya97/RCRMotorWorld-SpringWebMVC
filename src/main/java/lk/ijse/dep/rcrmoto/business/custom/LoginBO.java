@@ -5,6 +5,6 @@ import lk.ijse.dep.rcrmoto.dto.LoginDTO;
 
 public interface LoginBO extends SuperBO {
 
-    boolean authentication (LoginDTO loginDTO) throws Exception;
+    boolean authentication (LoginDTO loginDTO) ;
 
 }

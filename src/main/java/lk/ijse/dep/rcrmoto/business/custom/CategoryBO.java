@@ -6,5 +6,5 @@ import lk.ijse.dep.rcrmoto.dto.CategoryDTO;
 import java.util.List;
 
 public interface CategoryBO extends SuperBO {
-    public List<CategoryDTO> getCategories()throws Exception;
+    public List<CategoryDTO> getCategories();
 }

@@ -5,5 +5,5 @@ import lk.ijse.dep.rcrmoto.entity.Orders;
 
 public interface OrdersDAO extends CrudDAO<Orders,String> {
 
-    String getLastOrderId()throws Exception;
+    String getLastOrderId();
 }

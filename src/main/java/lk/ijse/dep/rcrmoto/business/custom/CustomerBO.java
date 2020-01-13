@@ -7,16 +7,16 @@ import java.util.List;
 
 public interface CustomerBO extends SuperBO {
 
-    void saveCustomer(CustomerDTO customer)throws Exception;
+    void saveCustomer(CustomerDTO customer);
 
-    void updateCustomer(CustomerDTO customer)throws Exception;
+    void updateCustomer(CustomerDTO customer);
 
-    void deleteCustomer(String id)throws Exception;
+    void deleteCustomer(String id);
 
-    List<CustomerDTO> findAllCustomers()throws Exception;
+    List<CustomerDTO> findAllCustomers();
 
-    String getLastCustomerId()throws Exception;
+    String getLastCustomerId();
 
-    List<CustomerDTO> searchCustomer(String text)throws Exception;
+    List<CustomerDTO> searchCustomer(String text);
 
 }

@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface QueryDAO extends SuperDAO {
 
-    List<CustomEntity> getOrderInfo()throws Exception;
+    List<CustomEntity> getOrderInfo();
 
-    List<CustomEntity> searchOrder(String text)throws Exception;
+    List<CustomEntity> searchOrder(String text);
 }

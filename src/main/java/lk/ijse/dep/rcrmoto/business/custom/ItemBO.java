@@ -7,16 +7,16 @@ import java.util.List;
 
 public interface ItemBO extends SuperBO{
 
-    void saveItem(ItemDTO item)throws Exception;
+    void saveItem(ItemDTO item);
 
-    void updateItem(ItemDTO item)throws Exception;
+    void updateItem(ItemDTO item);
 
-    void deleteItem(String id)throws Exception;
+    void deleteItem(String id);
 
-    List<ItemDTO> findAllItems()throws Exception;
+    List<ItemDTO> findAllItems();
 
-    String getLastItemId()throws Exception;
+    String getLastItemId();
 
-    List<ItemDTO> searchItems(String text)throws Exception;
+    List<ItemDTO> searchItems(String text);
 
 }
