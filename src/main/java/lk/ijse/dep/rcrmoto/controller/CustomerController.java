@@ -5,11 +5,9 @@ import lk.ijse.dep.rcrmoto.dto.CustomerDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,7 +26,28 @@ public class CustomerController {
         httpHeaders.add("X-Count",customers.size()+"");
         System.out.println("GET");
         return new ResponseEntity<>(customers,httpHeaders, HttpStatus.OK);
+    }
 
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
+    public String saveCustomer(@RequestBody CustomerDTO customer){
+        customerBO.saveCustomer(customer);
+        return "\"" +customer.getCustomerId() + "\"";
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity updateCustomer(@PathVariable String id, @RequestBody CustomerDTO customer){
+        if(id.equals(customer.getCustomerId())){
+            customerBO.updateCustomer(customer);
+            return new ResponseEntity(HttpStatus.NO_CONTENT);
+        }else{
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        }
+
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteCustomer(@PathVariable String id){
+        customerBO.deleteCustomer(id);
     }
 
 }
