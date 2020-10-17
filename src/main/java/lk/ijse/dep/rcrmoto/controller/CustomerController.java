@@ -36,6 +36,7 @@ public class CustomerController {
 
     @PutMapping("/{id}")
     public ResponseEntity updateCustomer(@PathVariable String id, @RequestBody CustomerDTO customer){
+    	System.out.println(id);
         if(id.equals(customer.getCustomerId())){
             customerBO.updateCustomer(customer);
             return new ResponseEntity(HttpStatus.NO_CONTENT);
